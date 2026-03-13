@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui";
+import { Landmark } from "lucide-react";
 
-// Mock bank connections
 const MOCK_BANKS = [
   {
     id: "1",
@@ -30,56 +29,50 @@ export default function BanksPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">Banks</h1>
-          <p className="mt-1 text-sm text-muted">
+          <h1 className="mx-h1">Banks</h1>
+          <p className="mt-1 text-sm mx-text-secondary">
             Connect your bank accounts via Plaid. 2FA may require periodic re-auth.
           </p>
         </div>
-        <Button>+ Add Institution Connection</Button>
+        <button className="mx-btn-primary">+ Add Institution Connection</button>
       </div>
 
       {banks.length === 0 ? (
-        <div className="rounded-lg border border-border bg-sidebar p-12 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-3xl">
-            🏦
+        <div className="mx-card mx-card-white p-12 text-center">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full" style={{background:'var(--mx-primary-bg)'}}>
+            <Landmark size={28} style={{color:'var(--mx-primary)'}} />
           </div>
-          <p className="text-foreground">No bank connections yet</p>
-          <p className="mt-1 text-sm text-muted">
+          <p className="font-medium">No bank connections yet</p>
+          <p className="mt-1 text-sm mx-text-secondary">
             Connect your first bank to sync transactions for cash reconciliation
           </p>
-          <Button className="mt-4">+ Add Institution Connection</Button>
+          <button className="mx-btn-primary mt-4">+ Add Institution Connection</button>
         </div>
       ) : (
-        <div className="rounded-lg border border-border bg-sidebar">
-          <table className="w-full">
+        <div className="mx-table-container">
+          <table className="mx-table">
             <thead>
-              <tr className="border-b border-border text-left text-sm text-muted">
-                <th className="px-4 py-3 font-medium">Account</th>
-                <th className="px-4 py-3 font-medium">Institution</th>
-                <th className="px-4 py-3 font-medium">Type</th>
-                <th className="px-4 py-3 font-medium">Last 4</th>
-                <th className="px-4 py-3 font-medium">Status</th>
-                <th className="px-4 py-3"></th>
+              <tr>
+                <th>Account</th>
+                <th>Institution</th>
+                <th>Type</th>
+                <th>Last 4</th>
+                <th>Status</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {banks.map((bank) => (
-                <tr
-                  key={bank.id}
-                  className="border-b border-border last:border-0 transition-colors hover:bg-sidebar-hover"
-                >
-                  <td className="px-4 py-3 font-medium text-foreground">{bank.name}</td>
-                  <td className="px-4 py-3 text-muted">{bank.institution}</td>
-                  <td className="px-4 py-3 text-muted">{bank.accountType}</td>
-                  <td className="px-4 py-3 text-muted">••••{bank.lastFour}</td>
-                  <td className="px-4 py-3">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-green-500/20 px-2.5 py-0.5 text-xs font-medium text-green-400">
-                      <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                      {bank.status}
-                    </span>
+                <tr key={bank.id} className="hover:bg-gray-50">
+                  <td className="font-medium">{bank.name}</td>
+                  <td className="mx-text-secondary">{bank.institution}</td>
+                  <td className="mx-text-secondary">{bank.accountType}</td>
+                  <td className="mx-text-secondary">••••{bank.lastFour}</td>
+                  <td>
+                    <span className="mx-tag mx-tag-success">{bank.status}</span>
                   </td>
-                  <td className="px-4 py-3">
-                    <button className="text-sm text-accent hover:underline">Reconnect</button>
+                  <td>
+                    <button className="text-sm hover:underline" style={{color:'var(--mx-primary)'}}>Reconnect</button>
                   </td>
                 </tr>
               ))}

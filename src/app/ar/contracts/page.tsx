@@ -191,7 +191,7 @@ export default function ContractsPage() {
             required
           />
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="ghost" onClick={() => { setAmendModal(null); setAmendReason(""); }}>Cancel</Button>
+            <Button variant="text" onClick={() => { setAmendModal(null); setAmendReason(""); }}>Cancel</Button>
             <Button onClick={handleAmend} disabled={!amendReason.trim()}>Submit Amendment</Button>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function ContractsPage() {
             ? This will set the end date to today.
           </p>
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="ghost" onClick={() => setEndModal(null)}>Cancel</Button>
+            <Button variant="text" onClick={() => setEndModal(null)}>Cancel</Button>
             <Button onClick={() => endModal && handleEnd(endModal)}>End Contract</Button>
           </div>
         </div>

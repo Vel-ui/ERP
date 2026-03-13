@@ -51,43 +51,40 @@ export default function FieldsPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">Custom Fields</h1>
-          <p className="mt-1 text-sm text-muted">
+          <h1 className="mx-h1">Custom Fields</h1>
+          <p className="mt-1 text-sm mx-text-secondary">
             Add custom fields with values and rules. Mandatory toggle; Display: Standalone or Free
             tagging. Used fields cannot be deleted.
           </p>
         </div>
-        <Button onClick={() => setModalOpen(true)}>+ Add Field</Button>
+        <button className="mx-btn-primary" onClick={() => setModalOpen(true)}>+ Add Field</button>
       </div>
 
-      <div className="rounded-lg border border-border bg-sidebar">
-        <table className="w-full">
+      <div className="mx-table-container">
+        <table className="mx-table">
           <thead>
-            <tr className="border-b border-border text-left text-sm text-muted">
-              <th className="px-4 py-3 font-medium">Name</th>
-              <th className="px-4 py-3 font-medium">Type</th>
-              <th className="px-4 py-3 font-medium">Mandatory</th>
-              <th className="px-4 py-3 font-medium">Display</th>
-              <th className="px-4 py-3 font-medium">Values</th>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Mandatory</th>
+              <th>Display</th>
+              <th>Values</th>
             </tr>
           </thead>
           <tbody>
             {fields.map((field) => (
-              <tr
-                key={field.id}
-                className="border-b border-border last:border-0 transition-colors hover:bg-sidebar-hover"
-              >
-                <td className="px-4 py-3 font-medium text-foreground">{field.name}</td>
-                <td className="px-4 py-3 text-muted">{field.type}</td>
-                <td className="px-4 py-3">
+              <tr key={field.id} className="hover:bg-gray-50">
+                <td className="font-medium">{field.name}</td>
+                <td className="mx-text-secondary">{field.type}</td>
+                <td>
                   {field.mandatory ? (
-                    <span className="text-accent">Yes</span>
+                    <span style={{color:'var(--mx-primary)'}}>Yes</span>
                   ) : (
-                    <span className="text-muted">No</span>
+                    <span className="mx-text-secondary">No</span>
                   )}
                 </td>
-                <td className="px-4 py-3 text-muted">{field.displayAs}</td>
-                <td className="px-4 py-3 text-muted text-sm">
+                <td className="mx-text-secondary">{field.displayAs}</td>
+                <td className="mx-text-secondary text-sm">
                   {field.values.length > 0 ? field.values.join(", ") : "—"}
                 </td>
               </tr>
@@ -123,9 +120,10 @@ export default function FieldsPage() {
               id="mandatory"
               checked={form.mandatory}
               onChange={(e) => setForm((f) => ({ ...f, mandatory: e.target.checked }))}
-              className="h-4 w-4 rounded border-border bg-sidebar text-accent focus:ring-accent"
+              className="h-4 w-4 rounded"
+              style={{accentColor:'var(--mx-primary)'}}
             />
-            <label htmlFor="mandatory" className="text-sm text-foreground">
+            <label htmlFor="mandatory" className="text-sm">
               Mandatory
             </label>
           </div>
@@ -138,10 +136,10 @@ export default function FieldsPage() {
             />
           )}
           <div className="flex justify-end gap-2 pt-4">
-            <Button type="button" variant="secondary" onClick={() => setModalOpen(false)}>
+            <button type="button" className="mx-btn-default" onClick={() => setModalOpen(false)}>
               Cancel
-            </Button>
-            <Button type="submit">Add Field</Button>
+            </button>
+            <button type="submit" className="mx-btn-primary">Add Field</button>
           </div>
         </form>
       </Modal>

@@ -141,11 +141,11 @@ export default function CustomersPage() {
           <p className="mt-1 text-sm text-muted">{customers.length} total customers</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" size="sm" onClick={handleExport}>
+          <Button variant="default" size="sm" onClick={handleExport}>
             Export
           </Button>
           {selected.size === 2 && (
-            <Button variant="secondary" size="sm" onClick={handleMerge}>
+            <Button variant="default" size="sm" onClick={handleMerge}>
               Merge Selected
             </Button>
           )}
@@ -249,7 +249,7 @@ export default function CustomersPage() {
             </label>
           </div>
           <div className="flex justify-end gap-2 pt-4 border-t border-border">
-            <Button variant="ghost" onClick={() => setModalOpen(false)}>Cancel</Button>
+            <Button variant="text" onClick={() => setModalOpen(false)}>Cancel</Button>
             <Button onClick={handleAdd} disabled={!form.companyName || !form.email}>Create Customer</Button>
           </div>
         </div>

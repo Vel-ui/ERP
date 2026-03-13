@@ -169,7 +169,7 @@ export default function ChecklistPage() {
           + Add Task
         </Button>
         <Button
-          variant="secondary"
+          variant="default"
           size="sm"
           onClick={() => setShowCopyConfirm(true)}
         >
@@ -177,7 +177,7 @@ export default function ChecklistPage() {
         </Button>
         {!isLocked ? (
           <Button
-            variant="outline"
+            variant="default"
             size="sm"
             onClick={() => setIsLocked(true)}
             className="ml-auto border-red-500/40 text-red-400 hover:bg-red-500/10"
@@ -186,7 +186,7 @@ export default function ChecklistPage() {
           </Button>
         ) : (
           <Button
-            variant="outline"
+            variant="default"
             size="sm"
             onClick={() => setIsLocked(false)}
             className="ml-auto border-yellow-500/40 text-yellow-400 hover:bg-yellow-500/10"
@@ -315,7 +315,7 @@ export default function ChecklistPage() {
             onKeyDown={(e) => e.key === "Enter" && addTask()}
           />
           <div className="flex justify-end gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setShowAddModal(false)}>
+            <Button variant="text" size="sm" onClick={() => setShowAddModal(false)}>
               Cancel
             </Button>
             <Button size="sm" onClick={addTask} disabled={!newTaskName.trim()}>
@@ -352,7 +352,7 @@ export default function ChecklistPage() {
               onChange={(e) => setEditingTask({ ...editingTask, dueDate: e.target.value })}
             />
             <div className="flex justify-end gap-2">
-              <Button variant="ghost" size="sm" onClick={() => setEditingTask(null)}>
+              <Button variant="text" size="sm" onClick={() => setEditingTask(null)}>
                 Cancel
               </Button>
               <Button size="sm" onClick={saveEdit}>
@@ -376,7 +376,7 @@ export default function ChecklistPage() {
             Completion status and attachments will be reset.
           </p>
           <div className="flex justify-end gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setShowCopyConfirm(false)}>
+            <Button variant="text" size="sm" onClick={() => setShowCopyConfirm(false)}>
               Cancel
             </Button>
             <Button size="sm" onClick={copyAndCreateNewMonth}>

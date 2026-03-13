@@ -38,41 +38,34 @@ export default function ChartOfAccountsPage() {
     <div>
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">Chart of Accounts</h1>
-          <p className="mt-1 text-sm text-muted">
+          <h1 className="mx-h1">Chart of Accounts</h1>
+          <p className="mt-1 text-sm mx-text-secondary">
             Add accounts with Number, Name, Type, Subtype, and optional links (Prepaid, Bank)
           </p>
         </div>
-        <Button onClick={() => setModalOpen(true)}>+ Add Account</Button>
+        <button className="mx-btn-primary" onClick={() => setModalOpen(true)}>+ Add Account</button>
       </div>
 
-      <div className="rounded-lg border border-border bg-sidebar">
-        <table className="w-full">
+      <div className="mx-table-container">
+        <table className="mx-table">
           <thead>
-            <tr className="border-b border-border text-left text-sm text-muted">
-              <th className="px-4 py-3 font-medium">Number</th>
-              <th className="px-4 py-3 font-medium">Name</th>
-              <th className="px-4 py-3 font-medium">Type</th>
-              <th className="px-4 py-3 font-medium">Subtype</th>
-              <th className="px-4 py-3 font-medium">Status</th>
+            <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Subtype</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
             {accounts.map((acct) => (
-              <tr
-                key={acct.id}
-                className="border-b border-border last:border-0 transition-colors hover:bg-sidebar-hover"
-              >
-                <td className="px-4 py-3 font-mono text-sm text-foreground">{acct.number}</td>
-                <td className="px-4 py-3 font-medium text-foreground">{acct.name}</td>
-                <td className="px-4 py-3 text-muted">{acct.type}</td>
-                <td className="px-4 py-3 text-muted">{acct.subtype}</td>
-                <td className="px-4 py-3">
-                  <span
-                    className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                      acct.active ? "bg-green-500/20 text-green-400" : "bg-muted/30 text-muted"
-                    }`}
-                  >
+              <tr key={acct.id} className="hover:bg-gray-50">
+                <td className="font-mono text-sm">{acct.number}</td>
+                <td className="font-medium">{acct.name}</td>
+                <td className="mx-text-secondary">{acct.type}</td>
+                <td className="mx-text-secondary">{acct.subtype}</td>
+                <td>
+                  <span className={acct.active ? "mx-tag mx-tag-success" : "mx-tag"}>
                     {acct.active ? "Active" : "Inactive"}
                   </span>
                 </td>
@@ -116,10 +109,10 @@ export default function ChartOfAccountsPage() {
             />
           )}
           <div className="flex justify-end gap-2 pt-4">
-            <Button type="button" variant="secondary" onClick={() => setModalOpen(false)}>
+            <button type="button" className="mx-btn-default" onClick={() => setModalOpen(false)}>
               Cancel
-            </Button>
-            <Button type="submit">Add Account</Button>
+            </button>
+            <button type="submit" className="mx-btn-primary">Add Account</button>
           </div>
         </form>
       </Modal>

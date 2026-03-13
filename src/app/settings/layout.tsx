@@ -9,7 +9,7 @@ export default function SettingsLayout({
     <div className="flex min-h-0 flex-1">
       <div className="flex w-full gap-8 p-8">
         <SettingsSidebar />
-        <div className="min-w-0 flex-1">{children}</div>
+        <div className="min-w-0 flex-1 rounded-lg bg-white p-6">{children}</div>
       </div>
     </div>
   );

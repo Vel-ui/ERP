@@ -281,7 +281,7 @@ export default function VendorsPage() {
           </div>
 
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="secondary" onClick={() => { setModalOpen(false); resetForm(); }}>Cancel</Button>
+            <Button variant="default" onClick={() => { setModalOpen(false); resetForm(); }}>Cancel</Button>
             <Button onClick={handleAddVendor}>Add Vendor</Button>
           </div>
         </div>

@@ -112,7 +112,7 @@ export default function ClosePage() {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-medium text-foreground">Checklist Preview</h2>
           <Link href="/close/checklist">
-            <Button variant="ghost" size="sm">View Full Checklist →</Button>
+            <Button variant="text" size="sm">View Full Checklist →</Button>
           </Link>
         </div>
         <div className="rounded-lg border border-border overflow-hidden">

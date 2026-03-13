@@ -1,6 +1,6 @@
 # Maximor ERP — Project Plan with Timelines
 
-> **Ready to execute.** Reply "yes" or "proceed" to start building immediately.
+> **Version 3.0** | Updated Mar 2026
 
 ---
 
@@ -8,196 +8,200 @@
 
 | Item | Value |
 |------|-------|
-| **Project** | Maximor ERP (Rillet-style accounting platform) |
-| **Total Duration** | ~33 weeks |
-| **Total Screens** | ~64 |
-| **Tech Stack** | React, TypeScript, Tailwind, TanStack Query/Table, React Hook Form, Zod, Next.js API, PostgreSQL |
-| **Can Start** | Yes, immediately upon approval |
+| **Project** | Maximor ERP (Enterprise accounting platform) |
+| **Total Screens** | ~87 |
+| **Tech Stack** | Next.js 14, TypeScript, Tailwind CSS, Maximor Design System (mx-), lucide-react, recharts, @tanstack/react-query, @tanstack/react-table, React Hook Form, Zod |
+| **Design System** | Maximor Design System — light theme, green primary (#154738), 21 reusable UI components |
+| **Backend (planned)** | Next.js API Routes → PostgreSQL |
+| **Auth (planned)** | NextAuth.js / Auth0 |
 
 ---
 
 ## Phase Overview
 
-| Phase | Focus | Screens | Duration | Milestone |
-|-------|-------|---------|----------|-----------|
-| **0** | Foundation | 6 | 3 weeks | App runs, Launchpad visible |
-| **1** | Org Settings | 8 | 2 weeks | Settings fully navigable |
-| **2** | Accounts Receivable | 12 | 6 weeks | Contract-to-cash flow works |
-| **3** | Cash Reconciliation | 5 | 2 weeks | Matching & Quick Entry work |
-| **4** | Accounts Payable | 6 | 4 weeks | Bills, Vendors, Charges |
-| **5** | Close + GL | 6 | 4 weeks | Checklist, JEs, Fixed Assets |
-| **6** | Reporting | 16 | 4 weeks | Core reports + Budget vs Actuals |
-| **7** | Multi-Entity + FX | 7 | 3 weeks | Subsidiaries, Intercompany, FX |
-| **8** | Integrations | 6 | 3 weeks | Stripe, Ramp, CRM connectors |
-| **9** | Aura AI (optional) | 2 | 2 weeks | Natural-language queries |
+| Phase | Focus | Screens | Status | Milestone |
+|-------|-------|---------|--------|-----------|
+| **0** | Foundation | 6 | ✅ Complete | App runs, Launchpad visible, Design System applied |
+| **1** | Org Settings | 10 | ✅ Complete | Settings fully navigable, Onboarding wizard |
+| **2** | Revenue (AR) | 10 | ✅ Complete | Contract-to-cash flow, Revenue Recognition |
+| **3** | Cash Management | 4 | ✅ Complete | Matching, Quick Entry, Cash Reporting |
+| **4** | Subledgers | 9 | ✅ Complete | AP, Accruals, Fixed Assets, Prepaids, Reimbursements |
+| **5** | Period Close + GL | 8 | ✅ Complete | Checklist, JEs, Flux Analysis, Reconciliations |
+| **6** | Reporting | 16 | ✅ Complete | Core reports + Budget vs Actuals |
+| **6a** | Central Data Hub | 5 | ✅ Complete | Unified Ledger, Data Catalog, Mapping |
+| **6b** | Workflows | 1 | ✅ Complete | Approval chains, automation |
+| **7** | Multi-Entity + FX | 4 | Planned | Subsidiaries, Intercompany, FX |
+| **8** | Integrations | 13 | ✅ Complete | 13 integration setup pages |
+| **9** | Aura AI | 1 | ✅ Complete | Natural-language queries |
 
 ---
 
 ## Detailed Phase Plan
 
-### Phase 0: Foundation (Weeks 1–3)
+### Phase 0: Foundation ✅ Complete
 
-| Week | Deliverables |
-|------|--------------|
-| **1** | Project scaffolding (Vite/Next.js, Tailwind, TS, folders); Design tokens (colors, spacing); App shell (sidebar, header, routing); Base components (Button, Input, Select, Table, Modal) |
-| **2** | Sidebar navigation; Organization selector; Launchpad layout; Workflow Snapshot (placeholders); Tech Stack Monitoring (placeholder) |
-| **3** | + Add Metric (6 max); Reports section; User Preferences (name, date format, light/dark); Component polish |
-
-**Exit criteria:** App loads, sidebar navigates, Launchpad shows layout. No backend yet; mock data.
-
----
-
-### Phase 1: Organization Settings (Weeks 4–5)
-
-| Week | Deliverables |
-|------|--------------|
-| **4** | Settings layout; Banks list (mock); Chart of Accounts list + Add Account form; Fields list + Add Field form |
-| **5** | Members & Roles; Invoices > Communications; Accounting; Report Settings; All settings screens navigable |
-
-**Exit criteria:** All 8 settings screens render with forms. Data can be mock or localStorage.
+| Deliverables |
+|--------------|
+| Project scaffolding (Next.js 14, Tailwind, TypeScript) |
+| Maximor Design System (mx-styles.css, color tokens, 21 components) |
+| App shell with dark green sidebar, Topbar with breadcrumbs |
+| Launchpad with Metrics, Workflow Snapshot, Period Close Insights |
+| lucide-react icons throughout |
 
 ---
 
-### Phase 2: Accounts Receivable (Weeks 6–11)
+### Phase 1: Organization Settings ✅ Complete
 
-| Week | Deliverables |
-|------|--------------|
-| **6** | Customers list; Add/Edit Customer; Products list; Add/Edit Product |
-| **7** | Contracts list; Contract stepper (General, Products, Invoicing, Revenue, Summary) |
-| **8** | Invoices list; Create/Edit Invoice (split layout); Credit Memos list + Create |
-| **9** | Upload Usage modal; GL Impact; Contract actions (Edit, Amend, End, Delete) |
-| **10** | Invoice actions (Send, Mark sent, Receive payment); Status flows |
-| **11** | AR polish; Export; links from Launchpad |
-
-**Exit criteria:** Full contract → invoice → credit memo flow. Backend or mock.
+| Deliverables |
+|--------------|
+| Settings layout with sidebar navigation |
+| Banks, Chart of Accounts, Fields, Members & Roles |
+| Invoices > Communications, Accounting, Report Settings |
+| Onboarding & Go-Live wizard |
+| Subsidiaries management |
+| 13 integration setup pages (Plaid, Stripe, Brex, Expensify, Float, Gusto, Anrok, Avalara, Salesforce, HubSpot, Ramp, Rippling) |
 
 ---
 
-### Phase 3: Cash Reconciliation (Weeks 12–13)
+### Phase 2: Revenue (AR) ✅ Complete
 
-| Week | Deliverables |
-|------|--------------|
-| **12** | Reconciliation layout (Bank | Rillet panes); Bank Transactions list; Rillet Transactions list; Match button (one-to-one) |
-| **13** | One-to-many match; Match & Adjust; Quick Entry modal; Transfer; Unmatch |
-
-**Exit criteria:** Matching and Quick Entry work. Bank data mock or Plaid stub.
-
----
-
-### Phase 4: Accounts Payable (Weeks 14–17)
-
-| Week | Deliverables |
-|------|--------------|
-| **14** | Vendors list; Add/Edit Vendor |
-| **15** | Bills list; Create/Edit Bill; Line items; Service period |
-| **16** | Bill Credit modal; Pay Expense modal; Charges list; Prepaid Schedule |
-| **17** | AP polish; FX currency selector on Bill |
-
-**Exit criteria:** Bills, Vendors, Bill Credit, Pay Expense. Prepaid schedule view.
+| Deliverables |
+|--------------|
+| Customers list with Add/Edit/Merge/Export |
+| Products list with Revenue/Non-Revenue, Fixed/Usage |
+| Contracts with multi-step wizard (General → Products → Invoicing → Revenue → Summary) |
+| Invoices with split layout, status flows |
+| Credit Memos with Apply/Refund |
+| Revenue Recognition (ASC 606) |
+| Revenue Policies configuration |
 
 ---
 
-### Phase 5: Close Management & GL (Weeks 18–21)
+### Phase 3: Cash Management ✅ Complete
 
-| Week | Deliverables |
-|------|--------------|
-| **18** | Close Checklist; Add task, owner, due date, attach; Mark complete; Copy & Create New Month |
-| **19** | Account Register; Create/Edit JE; Upload JE (CSV); Reversal date |
-| **20** | General Ledger report; Pending Approval filter; Approve JE |
-| **21** | Fixed Assets list; Dispose modal; Close Books |
-
-**Exit criteria:** Checklist, JEs, GL report, Fixed Assets.
+| Deliverables |
+|--------------|
+| Cash overview dashboard |
+| Reconciliation workbench (Bank | Maximor panes) |
+| Cash Reporting (flow trends, balances) |
+| Bank account policies |
 
 ---
 
-### Phase 6: Reporting (Weeks 22–25)
+### Phase 4: Subledgers ✅ Complete
 
-| Week | Deliverables |
-|------|--------------|
-| **22** | Income Statement; Balance Sheet; Cash Flow; Customize (Columns, Breakdown) |
-| **23** | Executive P&L; SaaS P&L; AR Aging; AP Aging |
-| **24** | Budget vs Actuals; Upload budget CSV; MRR/ARR; ARR Waterfall; Data Lab |
-| **25** | 1099; Sales Tax; VAT; Prepaid Schedule; Favorites; Pinning (max 5) |
-
-**Exit criteria:** All reports render with mock/real data. Budget upload works.
-
----
-
-### Phase 7: Multi-Entity & FX (Weeks 26–28)
-
-| Week | Deliverables |
-|------|--------------|
-| **26** | Subsidiaries list; Subsidiary Entity Details (Profile, Accounting, Invoicing) |
-| **27** | Intercompany Entry; Intercompany Management Fee; FX Setup in Accounting |
-| **28** | Bills/Invoices in FX; Multi Currency Match; Pay Expense for FX |
-
-**Exit criteria:** Subsidiaries, Intercompany, FX on bills/invoices.
+| Deliverables |
+|--------------|
+| AP Overview dashboard |
+| Vendors list with full schema |
+| Bills with line items, service periods |
+| Charges from integrations |
+| Accruals management with schedules and reversals |
+| Reimbursements tracking |
+| Fixed Assets register with depreciation and disposal |
+| Prepaids & Amortization schedules |
 
 ---
 
-### Phase 8: Integrations (Weeks 29–31)
+### Phase 5: Period Close + GL ✅ Complete
 
-| Week | Deliverables |
-|------|--------------|
-| **29** | Integrations list by category; Stripe setup UI; Ramp/Brex setup UI |
-| **30** | HubSpot/Salesforce setup; Rippling/Gusto setup |
-| **31** | Avalara/Anrok setup; Integration status tiles; Tech Stack Monitoring live |
-
-**Exit criteria:** Integration setup screens. OAuth/API stubs where needed.
-
----
-
-### Phase 9: Aura AI (Optional, Weeks 32–33)
-
-| Week | Deliverables |
-|------|--------------|
-| **32** | AI Assistant panel; Suggested queries; Natural language input |
-| **33** | Table/list results; Prompt examples |
-
-**Exit criteria:** AI panel with basic query handling.
+| Deliverables |
+|--------------|
+| Period Close overview dashboard |
+| Close Checklist (tasks, owners, due dates, attachments) |
+| Journal Entries (create, upload CSV, reversal, approval) |
+| Flux Analysis with variance tracking and explanations |
+| Account Reconciliations |
+| Close Monitoring dashboard |
+| Intercompany entries |
 
 ---
 
-## MVP Option (Faster Time to Value)
+### Phase 6: Reporting ✅ Complete
 
-If you want something usable sooner:
-
-| Scope | Phases | Duration | Outcome |
-|-------|--------|----------|---------|
-| **MVP** | 0 + 1 + 2 | 11 weeks | Launchpad, Settings, AR (Customers → Contracts → Invoices) |
-| **Extended MVP** | 0–3 | 13 weeks | + Cash Reconciliation |
-| **Full** | 0–9 | 33 weeks | Complete ERP |
-
----
-
-## What I Build Per Session
-
-Each session I can:
-
-- Add new screens, components, or routes
-- Implement forms with validation (Zod)
-- Wire up API routes and data
-- Fix bugs and polish UX
-
-You review incrementally. We can pause after any phase for testing or scope changes.
+| Deliverables |
+|--------------|
+| Income Statement, Balance Sheet, Cash Flow |
+| Executive P&L, SaaS P&L |
+| AR Aging, AP Aging |
+| Budget vs Actuals with CSV upload |
+| MRR/ARR, ARR Waterfall |
+| Data Lab (transaction explorer) |
+| Close Reports: 1099, Sales Tax, VAT, Prepaid Schedule |
+| Favorites and Pinning (max 5) |
 
 ---
 
-## Prerequisites (Your Side)
+### Phase 6a: Central Data Hub ✅ Complete
+
+| Deliverables |
+|--------------|
+| Unified Ledger (consolidated GL view) |
+| Data Catalog (metadata registry) |
+| Data Mapping (field mapping and transformations) |
+| Integration Hub (sync status and management) |
+
+---
+
+### Phase 6b: Workflows ✅ Complete
+
+| Deliverables |
+|--------------|
+| Approval chain configuration |
+| Rule-based automation |
+| Notification management |
+
+---
+
+### Phase 7: Multi-Entity & FX (Planned)
+
+| Deliverables |
+|--------------|
+| Subsidiaries list and entity details |
+| Intercompany entries and management fees |
+| FX setup (multi-currency, revaluation accounts) |
+| Bills/Invoices in FX; Multi Currency Match |
+
+---
+
+### Phase 8: Integrations ✅ Complete
+
+| Deliverables |
+|--------------|
+| Integrations list by category (Banks, AP, Payroll, CRM, Tax) |
+| Individual setup pages for 13 integrations |
+| Plaid, Stripe, Brex, Expensify, Float, Gusto, Anrok, Avalara, Salesforce, HubSpot, Ramp, Rippling |
+
+---
+
+### Phase 9: Aura AI ✅ Complete
+
+| Deliverables |
+|--------------|
+| AI Assistant panel with suggested queries |
+| Natural language input with contextual results |
+
+---
+
+## What's Next
+
+| Priority | Item | Description |
+|----------|------|-------------|
+| **High** | Backend API | Next.js API routes + PostgreSQL database |
+| **High** | Authentication | NextAuth.js with role-based access (Admin, Accountant) |
+| **High** | Multi-Entity & FX | Phase 7 implementation |
+| **Medium** | Live Integrations | Connect Plaid, Stripe, and CRM APIs |
+| **Medium** | Testing | Unit, integration, and E2E test suites |
+| **Low** | Performance | Code splitting, lazy loading, caching strategies |
+
+---
+
+## Prerequisites
 
 1. **Node.js** (v18+) installed
-2. **Git** (if using version control)
-3. **Database** (PostgreSQL or SQLite for MVP) — can add later
+2. **Git** for version control
+3. **PostgreSQL** (when backend phase begins)
 
 ---
 
-## Ready to Start?
-
-Reply **"yes"** or **"proceed"** and I will:
-
-1. Initialize the React + TypeScript project
-2. Set up Tailwind and design tokens
-3. Build the app shell and sidebar
-4. Add the Launchpad layout
-
-I can start immediately.
+*Project Plan version: 3.0 | Updated Mar 2026*

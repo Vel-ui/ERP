@@ -266,7 +266,7 @@ export default function BillsPage() {
           />
           <p className="text-xs text-muted">Currency: {creditBill?.currency ?? "USD"} (must match bill currency)</p>
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="secondary" onClick={() => setCreditOpen(false)}>Cancel</Button>
+            <Button variant="default" onClick={() => setCreditOpen(false)}>Cancel</Button>
             <Button onClick={handleBillCredit}>Save</Button>
           </div>
         </div>
@@ -288,7 +288,7 @@ export default function BillsPage() {
             </p>
           )}
           <div className="flex justify-end gap-2 pt-2">
-            <Button variant="secondary" onClick={() => setPayOpen(false)}>Cancel</Button>
+            <Button variant="default" onClick={() => setPayOpen(false)}>Cancel</Button>
             <Button onClick={handlePayExpense}>Confirm Payment</Button>
           </div>
         </div>

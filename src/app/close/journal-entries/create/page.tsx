@@ -154,7 +154,7 @@ export default function CreateJournalEntryPage() {
           <h1 className="text-2xl font-semibold text-foreground">Create Journal Entry</h1>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={handleCSVUpload}>
+          <Button variant="default" size="sm" onClick={handleCSVUpload}>
             Upload JE (CSV)
           </Button>
           <input
@@ -221,7 +221,7 @@ export default function CreateJournalEntryPage() {
       <div>
         <div className="flex items-center justify-between mb-3">
           <h2 className="text-lg font-medium text-foreground">Line Items</h2>
-          <Button variant="ghost" size="sm" onClick={addLine}>
+          <Button variant="text" size="sm" onClick={addLine}>
             + Add Line
           </Button>
         </div>
@@ -337,10 +337,10 @@ export default function CreateJournalEntryPage() {
       {/* Actions */}
       <div className="flex items-center justify-between pt-2">
         <Link href="/close/account-register">
-          <Button variant="ghost">Cancel</Button>
+          <Button variant="text">Cancel</Button>
         </Link>
         <div className="flex items-center gap-3">
-          <Button variant="secondary" onClick={handleSave} disabled={!name.trim()}>
+          <Button variant="default" onClick={handleSave} disabled={!name.trim()}>
             Save as Draft
           </Button>
           <Button onClick={handleSave} disabled={!name.trim() || !isBalanced}>

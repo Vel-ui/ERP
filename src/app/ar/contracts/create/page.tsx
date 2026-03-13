@@ -438,7 +438,7 @@ export default function ContractCreatePage() {
       {/* Navigation */}
       <div className="flex items-center justify-between">
         <Button
-          variant="ghost"
+          variant="text"
           onClick={() => (step === 0 ? router.push("/ar/contracts") : setStep(step - 1))}
         >
           {step === 0 ? "Cancel" : "← Previous"}

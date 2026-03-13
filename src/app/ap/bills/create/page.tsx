@@ -176,12 +176,12 @@ export default function BillCreatePage() {
                       onChange={(e) => setFxRate(e.target.value)}
                     />
                   </div>
-                  <Button variant="secondary" size="sm" onClick={() => setShowFxEditor(false)}>Done</Button>
+                  <Button variant="default" size="sm" onClick={() => setShowFxEditor(false)}>Done</Button>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-muted">Rate: 1 {currency} = {fxRate} USD</span>
-                  <Button variant="ghost" size="sm" onClick={() => setShowFxEditor(true)}>Edit Rate</Button>
+                  <Button variant="text" size="sm" onClick={() => setShowFxEditor(true)}>Edit Rate</Button>
                 </div>
               )}
             </>
@@ -193,7 +193,7 @@ export default function BillCreatePage() {
       <div className="rounded-lg border border-border">
         <div className="flex items-center justify-between border-b border-border bg-sidebar px-4 py-3">
           <h2 className="text-sm font-semibold text-foreground">Line Items</h2>
-          <Button variant="ghost" size="sm" onClick={addLine}>+ Add Line</Button>
+          <Button variant="text" size="sm" onClick={addLine}>+ Add Line</Button>
         </div>
 
         <div className="overflow-x-auto">
@@ -350,7 +350,7 @@ export default function BillCreatePage() {
 
         {/* Total */}
         <div className="flex items-center justify-between border-t border-border bg-sidebar px-4 py-3">
-          <Button variant="ghost" size="sm" onClick={addLine}>+ Add Line Item</Button>
+          <Button variant="text" size="sm" onClick={addLine}>+ Add Line Item</Button>
           <div className="flex items-center gap-4">
             {currency !== "USD" && (
               <span className="text-sm text-muted">
@@ -367,7 +367,7 @@ export default function BillCreatePage() {
 
       {/* Bottom actions */}
       <div className="mt-6 flex justify-end gap-3">
-        <Button variant="secondary" onClick={() => router.push("/ap/bills")}>Cancel</Button>
+        <Button variant="default" onClick={() => router.push("/ap/bills")}>Cancel</Button>
         <Button onClick={handleSave}>Save Bill</Button>
       </div>
     </div>

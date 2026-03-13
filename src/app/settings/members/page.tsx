@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Select, Modal } from "@/components/ui";
+import { Select, Modal } from "@/components/ui";
 import { MOCK_MEMBERS } from "@/lib/mock-data";
 
 const ROLES = [
@@ -40,53 +40,48 @@ export default function MembersPage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-2xl font-semibold text-foreground">Members & Roles</h1>
-        <p className="mt-1 text-sm text-muted">
+        <h1 className="mx-h1">Members &amp; Roles</h1>
+        <p className="mt-1 text-sm mx-text-secondary">
           Manage team access. Edit role via three-dot menu. Archive = remove access (permanent).
         </p>
       </div>
 
-      <div className="rounded-lg border border-border bg-sidebar">
-        <table className="w-full">
+      <div className="mx-table-container">
+        <table className="mx-table">
           <thead>
-            <tr className="border-b border-border text-left text-sm text-muted">
-              <th className="px-4 py-3 font-medium">Name</th>
-              <th className="px-4 py-3 font-medium">Email</th>
-              <th className="px-4 py-3 font-medium">Role</th>
-              <th className="px-4 py-3"></th>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {members.map((member) => (
-              <tr
-                key={member.id}
-                className="border-b border-border last:border-0 transition-colors hover:bg-sidebar-hover"
-              >
-                <td className="px-4 py-3 font-medium text-foreground">{member.name}</td>
-                <td className="px-4 py-3 text-muted">{member.email}</td>
-                <td className="px-4 py-3">
+              <tr key={member.id} className="hover:bg-gray-50">
+                <td className="font-medium">{member.name}</td>
+                <td className="mx-text-secondary">{member.email}</td>
+                <td>
                   <span
-                    className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
-                      member.role === "Admin"
-                        ? "bg-accent/20 text-accent"
-                        : "bg-sidebar-hover text-muted"
-                    }`}
+                    className="mx-tag"
+                    style={member.role === "Admin" ? {background:'var(--mx-primary-bg)', color:'var(--mx-primary)'} : undefined}
                   >
                     {member.role}
                   </span>
                 </td>
-                <td className="px-4 py-3">
+                <td>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleEditRole(member)}
-                      className="text-sm text-accent hover:underline"
+                      className="text-sm hover:underline"
+                      style={{color:'var(--mx-primary)'}}
                     >
                       Edit role
                     </button>
-                    <span className="text-muted">|</span>
+                    <span className="mx-text-secondary">|</span>
                     <button
                       onClick={() => handleArchive(member.id)}
-                      className="text-sm text-muted hover:text-red-400 hover:underline"
+                      className="text-sm mx-text-secondary hover:text-red-500 hover:underline"
                     >
                       Archive
                     </button>
@@ -98,9 +93,9 @@ export default function MembersPage() {
         </table>
       </div>
 
-      <Button variant="secondary" className="mt-4">
+      <button className="mx-btn-default mt-4">
         + Invite Member
-      </Button>
+      </button>
 
       <Modal
         isOpen={editModalOpen}
@@ -115,10 +110,10 @@ export default function MembersPage() {
             onChange={(e) => setEditRole(e.target.value)}
           />
           <div className="flex justify-end gap-2 pt-4">
-            <Button type="button" variant="secondary" onClick={() => setEditModalOpen(false)}>
+            <button type="button" className="mx-btn-default" onClick={() => setEditModalOpen(false)}>
               Cancel
-            </Button>
-            <Button type="submit">Save</Button>
+            </button>
+            <button type="submit" className="mx-btn-primary">Save</button>
           </div>
         </form>
       </Modal>

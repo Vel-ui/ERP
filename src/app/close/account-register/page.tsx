@@ -143,7 +143,7 @@ export default function AccountRegisterPage() {
         </div>
         {(statusFilter !== "all" || dateFrom || dateTo || accountFilter !== "all") && (
           <Button
-            variant="ghost"
+            variant="text"
             size="sm"
             onClick={() => {
               setStatusFilter("all");

@@ -269,7 +269,7 @@ export default function ProductsPage() {
           </label>
 
           <div className="flex justify-end gap-2 pt-4 border-t border-border">
-            <Button variant="ghost" onClick={() => setModalOpen(false)}>Cancel</Button>
+            <Button variant="text" onClick={() => setModalOpen(false)}>Cancel</Button>
             <Button onClick={handleAdd} disabled={!form.name}>Create Product</Button>
           </div>
         </div>
